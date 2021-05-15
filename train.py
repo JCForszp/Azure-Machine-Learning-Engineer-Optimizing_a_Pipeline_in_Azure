@@ -66,6 +66,10 @@ def main():
 
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
 
+    # Model saving lines, from knwoldge.udacity.com/questions/387608
+    os.makedirs('outputs', exist_ok=True)
+    joblib.dump(value=model, filename='outputs/model.pkl')
+
     accuracy = model.score(x_test, y_test)
     run.log("Accuracy", np.float(accuracy))
 

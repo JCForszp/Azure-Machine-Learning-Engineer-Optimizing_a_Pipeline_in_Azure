@@ -8,6 +8,14 @@ This model is then compared to an Azure AutoML run.
 ## Summary
 **In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**  
 This is a test sentence from JCF
+The aim of this project is to apply two methods to determine the model with the best accuracy to predict whether a customer will or won't subscribe to a given bank service (classification).  
+- The first method used is to fix the model, in our case a logistic regression, and let Azure HyperDrive determine the best parameters.
+- The second method is to apply Azure AutoML to the same dataset and let it determine the model and parameters that give the best accuracy. 
+
+The dataset contains 32 950 observations, but with some caveats: three features are highly correlated (emp.var.rate, euribor3m and nr.employed) and the outcomes are largely imbalanced (88.6% rejected the offer, 11.2% accepted it, leading to a null accuracy of almost 89% from the start). 
+So, the gap between the accuracy of the first method (91.76%) with the second (91.68%) and the null accuracy (88.6%) is pretty close. 
+[Analysis](bankmarketing.html)
+
 
 **In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
 

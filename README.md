@@ -14,7 +14,7 @@ The aim of this project is to apply two methods to determine the model with the 
 The project uses a unique dataset made out of 32 950 observations - with some caveats: 
 three features are highly correlated (emp.var.rate, euribor3m and nr.employed) and the outcomes are largely imbalanced 
 (88.6% rejected the offer, 11.2% accepted it, leading to a null accuracy of almost 89% from the start). 
-So, the gap between the accuracy of the first method (91.76%) with the second (91.68%) and the null accuracy (88.6%) is pretty close. 
+So, the gap between the accuracy of the first method (91.76%) with the second (91.68%) and the null accuracy (88.6%) is relatively small. 
 [Analysis](bankmarketing.html). More work needs to be done on the dataset to provide more positive cases. 
 
 Relying exclusively on the accuracy, the best performing model was the logistics regression, at the end. 
@@ -22,7 +22,18 @@ Relying exclusively on the accuracy, the best performing model was the logistics
 # Details of the setups of the 2 methods
 
 ## Method 1 - Logistics Regression (Scikit-learn Pipeline)
-**Explain the pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
+**Pipeline architecture, including data, hyperparameter tuning, and classification algorithm.**
+The classification algorithm was provided for this part of the project. Most of the 21 features were numerical, the few categorical ones could be easily be one-hot-encoded and the targets were binary ones (0 for rejection, 1 for acceptance). So, a logistics regression model looks well appropriate for such classification task with this size and structure of the dataset. 
+
+The pipeline architecture was split into a python script, that contains the data cleanup, the split into train & test datasets as well as the logistics regression model itself. 
+The script uses a parser to define as arguments the two hyperparameters required by the model: 
+- one for the regularization strength and 
+- one for the maximum number of iterations. 
+This will allow to be called repetitively from the notebook, by HyperDrive, during the search for optimal parameters.
+
+The pipeline is driven from the Jupyter notebook udacity-project.ipynb that defines the context for the search of the optimal hyperparameters (within that context).
+Hyperparameter space: I chose the RandomParameterSampling, mainly for speed reason, as the usual alternative, GridParameterSampling, would have triggered an exhaustive search over the complete space, for a gain that proved to be relatively small at the end. Also, GridParameterSampling only allows discrete values, while random sampling is more open as it allows also the use of continuous values. 
+Regarding early termination of poorly performing runs, I used the BanditPolicy. The BanditPolicy defines a slack factor (defined to 0.1 in my case). All runs that fall outside the slack factor with respect to the best performing run will be terminated, saving time and budget. 
 
 **What are the benefits of the parameter sampler you chose?**
 

@@ -58,5 +58,5 @@ Now, I was expecting AutoML to come out with a better accuracy, but it did not. 
 
 
 ## Proof of cluster clean up
-
+below the command included in the notebook. Please note that the command was executed without error message, but also without returning any message either. 
 ![Proof](https://user-images.githubusercontent.com/36628203/119268978-a71cdb80-bbf5-11eb-8ad4-076aaef0fd83.png)

@@ -55,6 +55,8 @@ Now, I was expecting AutoML to come out with a better accuracy, but it did not. 
 
 ## Future work
 **Areas of improvements**
+The dataset probably needs some more feature engineering. I am most concerned about the high correlations on three key variables, as shown in the [Analysis](bankmarketing.html).
+Better could be achieved by allocating more time and resources, in particular by enabling deep learning. But, then, it goes much beyond, as we then can't use only CPU, as we did here, but we also need at least a GPU right from the start.
 
 
 ## Proof of cluster clean up

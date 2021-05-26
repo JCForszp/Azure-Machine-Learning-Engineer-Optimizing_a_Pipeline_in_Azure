@@ -49,7 +49,7 @@ In this case, we let AutoML determine the best model and the optimal hyperparame
 The model selected was a Voting Ensemble, with the following details
 ![BestModelDetails](https://user-images.githubusercontent.com/36628203/119268455-5d32f600-bbf3-11eb-8c70-34eefd122935.png)
 
-Voting ensemble is a particular, in the way that AutoML does not returns, in this case, one particular algorithm with optimized hyperparameters, but runs the optmization for a set of algorithms (7 in my case, i.e 4 times XGBoost with 4 different sets of hyperparameters, then lightgbm, Logistic Regression and Random Forest. Then, it applies weights / probabilities to each of them. In the [output](VotingEnsemble details.txt)
+Voting ensemble is a particular, in the way that AutoML does not returns, in this case, one particular algorithm with optimized hyperparameters, but runs the optmization for a set of algorithms (7 in my case, i.e 4 times XGBoost with 4 different sets of hyperparameters, then lightgbm, Logistic Regression and Random Forest. Then, it applies weights / probabilities to each of them. In the [output](https://github.com/JCForszp/nd00333_AZMLND_Optimizing_a_Pipeline_in_Azure-Starter_Files/blob/master/VotingEnsemble%20details.txt)
 
 ## Pipeline comparison
 AutoML is more comfortable, as it does the model selection for you, not only the hyperparameters optimization as Hyperdrive does. 

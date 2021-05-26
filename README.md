@@ -49,6 +49,8 @@ In this case, we let AutoML determine the best model and the optimal hyperparame
 The model selected was a Voting Ensemble, with the following details
 ![BestModelDetails](https://user-images.githubusercontent.com/36628203/119268455-5d32f600-bbf3-11eb-8c70-34eefd122935.png)
 
+Voting ensemble is a particular, in the way that AutoML does not returns, in this case, one particular algorithm with optimized hyperparameters, but runs the optmization for a set of algorithms (7 in my case, i.e 4 times XGBoost with 4 different sets of hyperparameters, then lightgbm, Logistic Regression and Random Forest. Then, it applies weights / probabilities to each of them. In the [output](VotingEnsemble details.txt)
+
 ## Pipeline comparison
 AutoML is more comfortable, as it does the model selection for you, not only the hyperparameters optimization as Hyperdrive does. 
 Now, I was expecting AutoML to come out with a better accuracy, but it did not. As we used a K-Fold cross-validation parameter of 5, the test set size was set to 20% - it could be interesting to come back to the most common value for k-folds (10) and check the impact, if any, on the accuracy. 
